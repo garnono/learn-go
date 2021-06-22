@@ -36,6 +36,21 @@ func TestFunc() {
 	// 方法
 	b1 := Book{id: 1}
 	b1.read()
+
+	b2 := Book{id: 2, author: "null"}
+	fmt.Println("book2", b2)
+	b2.setAuthor("hahahahahah")
+	fmt.Println("book2", b2)
+	b2.setAuthorByPoint("test")
+	fmt.Println("book2", b2)
+
+	// 继承
+	student1 := Student{}
+	student1.sayHi()
+
+	// 重写
+	teacher1 := Teacher{}
+	teacher1.sayHi()
 }
 
 /*
@@ -74,4 +89,36 @@ func getSequence() func() int {
 
 func (book Book) read() {
 	fmt.Println("book for read")
+}
+
+func (book *Book) setAuthorByPoint(author string) {
+	book.author = author
+}
+
+func (book Book) setAuthor(author string) {
+	book.author = author
+}
+
+type Human struct {
+	name string
+	sex  int
+	age  int
+}
+
+type Student struct {
+	Human  // 匿名字段
+	school string
+}
+
+type Teacher struct {
+	Human
+	school string
+}
+
+func (h Human) sayHi() {
+	fmt.Println("human hi...")
+}
+
+func (t Teacher) sayHi() {
+	fmt.Println("teacher hi...")
 }

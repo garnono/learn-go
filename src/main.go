@@ -112,7 +112,7 @@ func main() {
 
 	// 语句
 	learn.TestSentence()
-	// 函数
+	// 函数——面向对象
 	learn.TestFunc()
 	// 作用域
 
