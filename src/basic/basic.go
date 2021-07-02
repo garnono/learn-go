@@ -88,18 +88,18 @@ import (
 var command = map[string]func(){
 	"const":     TestConst, // 常量
 	"var":       TestVar,   // 变量
-	//"bool":      TestBool,  // 基础类型-------
-	//"number":    TestNumber,
-	//"string":    TestString,
-	//"array":     TestArray, // -----
-	//"struct":    TestStruct,
-	//"slice":     TestSlice,
-	//"pointer":   TestPointer, // 指针
-	//"channel":   TestChannel, //
-	//"sentence":  TestSentence,
-	//"func":      TestFunc,
-	//"interface": TestInterface,
-	//"other":     TestOther,
+	"bool":      TestBool,  // 基础类型-------
+	"number":    TestNumber,
+	"string":    TestString,
+	"array":     TestArray, // -----
+	"struct":    TestStruct,
+	"slice":     TestSlice,
+	"pointer":   TestPointer, // 指针
+	"channel":   TestChannel, //
+	"sentence":  TestSentence,
+	"func":      TestFunc,
+	"interface": TestInterface,
+	"other":     TestOther,
 }
 
 // 通过反射调用方法
@@ -125,13 +125,11 @@ func TestBasic(action string) {
 }
 
 func GetCommandKeyStr() string {
-	var keys []string = []string{"", ""}
+	var keys []string
 
-	i := 0
 	for ak, _ := range command {
 		fmt.Println(ak)
-		keys[i] = ak
-		i++
+		keys = append(keys, ak)
 	}
 	return strings.Join(keys, "|")
 
