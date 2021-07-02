@@ -1,4 +1,4 @@
-package learn
+package basic
 
 func TestChannel()  {
 	PrintStart("channel")

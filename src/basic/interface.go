@@ -1,4 +1,4 @@
-package learn
+package basic
 
 import (
 	"errors"
@@ -22,25 +22,25 @@ func TestInterface() {
 	fmt.Println("error:", err)
 
 	// 存储的值——任意类型的值
-	var mobile Phone
-
-	iphone := IPhone{name: "iphone"}
-	android := Android{name: "android"}
-
-	mobile = iphone
-	mobile = android
+	//var mobile Phone
+	//
+	//iphone := IPhone{name: "iphone"}
+	//android := Android{name: "android"}
+	//
+	//mobile = iphone
+	//mobile = android
 
 	// 判断类型
-	if _, ok := element.(Android); ok {
-		fmt.Println("is android")
-	}
-
-	switch v := element.(type) {
-	case IPhone:
-		fmt.Println("is iphone", v)
-	case Android:
-		fmt.Println("is andorid", v)
-	}
+	//if _, ok := element.(Android); ok {
+	//	fmt.Println("is android")
+	//}
+	//
+	//switch v := element.(type) {
+	//case IPhone:
+	//	fmt.Println("is iphone", v)
+	//case Android:
+	//	fmt.Println("is andorid", v)
+	//}
 
 }
 

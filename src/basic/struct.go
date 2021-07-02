@@ -1,4 +1,4 @@
-package learn
+package basic
 
 import "fmt"
 
@@ -17,7 +17,17 @@ type Book struct {
 	author string
 	price  float32
 }
+type Color struct {
+	name string
+}
 
+func (c *Color) changeName(name string) {
+	c.name = name
+}
+
+func (c Color) changeName2(name string) {
+	c.name = name
+}
 func TestStruct() {
 	PrintStart("struct")
 
