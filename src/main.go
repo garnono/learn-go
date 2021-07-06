@@ -2,6 +2,8 @@ package main
 
 import (
 	"basic"
+	"extend"
+	"extend/cli"
 	"flag"
 	"fmt"
 	"web"
@@ -10,12 +12,17 @@ import (
 func main() {
 	fmt.Println("hello goland !")
 
-	str := basic.GetCommandKeyStr()
-	fmt.Println(str)
+	cli.TestOs()
+	//cli.TestFlag()
 
+	basicActionStr := basic.GetCommandKeyStr()
+	extendActionStr := extend.GetCommandKeyStr()
 
-	modeDesc := "mode，可选值：basic｜web"
-	actionDesc := "action，可选值：当mode=basic时，\n当mode=web时，"
+	modeDesc := "mode，可选值：basic｜web｜extend"
+	actionDesc := "action，可选值：当mode=basic时，" +
+		"\n当mode=basic时，" + basicActionStr +
+		"\n当mode=web时，action 无效" +
+		"\n当mode=extend时，" + extendActionStr
 
 	mode := flag.String("m", "", modeDesc)
 	action := flag.String("a", "", actionDesc)
@@ -25,6 +32,6 @@ func main() {
 	case "basic":
 		basic.TestBasic(*action)
 	case "web":
-		web.TestWeb(*action)
+		web.TestWeb()
 	}
 }

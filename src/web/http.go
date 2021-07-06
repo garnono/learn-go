@@ -2,7 +2,6 @@ package web
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -23,11 +22,13 @@ func sayHelloName(w http.ResponseWriter, r *http.Request) {
 }
 
 func TestHttp() {
+
+
 	// 设置路由
-	http.HandleFunc("/", sayHelloName)
+	//http.HandleFunc("/", sayHelloName)
 	// 监听
-	err := http.ListenAndServe(":9090", nil)
-	if err != nil {
-		log.Fatal(":ListenAndServe:", err)
-	}
+	//err := http.ListenAndServe(":9090", nil)
+	//if err != nil {
+	//	log.Fatal(":ListenAndServe:", err)
+	//}
 }

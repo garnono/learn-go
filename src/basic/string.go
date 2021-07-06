@@ -1,6 +1,10 @@
 package basic
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"strings"
+)
 
 func TestString() {
 	PrintStart("string")
@@ -29,4 +33,43 @@ func TestString() {
 
 func printString(str string, num int) {
 	fmt.Println("string", num, str, "len", len(str))
+}
+
+/**
+字符串 拼接的方法
+1、+ 号
+2、sprintf 函数
+3、Join 函数
+4、buffer.WriteString 函数
+5、buffer.Builder（据说官方推荐）
+*/
+
+func JoinString() {
+	fmt.Println("test join string start --------------")
+
+	str1 := "abc"
+	str2 := "123"
+
+	strJoin1 := str1 + str2
+	fmt.Println("+ :", strJoin1)
+
+	fmt.Sprintln("%s%s", str1, str2)
+
+	var strSlice []string = []string{str1, str2}
+	strJoin3 := strings.Join(strSlice, "")
+	fmt.Println("Join:", strJoin3)
+
+	var bt bytes.Buffer
+	bt.WriteString(str1)
+	bt.WriteString(str2)
+	strJoin4 := bt.String()
+	fmt.Println("buffer.writerString:", strJoin4)
+
+	var bd strings.Builder
+	bd.WriteString(str1)
+	bd.WriteString(str2)
+	strJoin5 := bd.String()
+	fmt.Println("buffer.Build:", strJoin5)
+
+	fmt.Println("test join string end --------------")
 }

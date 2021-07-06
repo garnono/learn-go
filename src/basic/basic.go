@@ -1,7 +1,6 @@
 package basic
 
 import (
-	"fmt"
 	"reflect"
 	"strings"
 )
@@ -128,17 +127,7 @@ func GetCommandKeyStr() string {
 	var keys []string
 
 	for ak, _ := range command {
-		fmt.Println(ak)
 		keys = append(keys, ak)
 	}
 	return strings.Join(keys, "|")
-
-	//var keyStr strings.Builder
-	//
-	//for ak, _ := range command {
-	//	keyStr.WriteString(ak)
-	//	keyStr.WriteString(" | ")
-	//}
-	//
-	//return keyStr.String()
 }
